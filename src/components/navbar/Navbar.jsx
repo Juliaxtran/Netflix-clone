@@ -20,12 +20,12 @@ const Navbar = () => {
           <span>My List</span>
         </div>
         <div className="right">
-          <SearchIcon />
+          <SearchIcon className='icon'/>
           <span>KID</span>
-          <NotificationsIcon />
+          <NotificationsIcon className='icon'/>
           <img src='https://mir-s3-cdn-cf.behance.net/project_modules/disp/84c20033850498.56ba69ac290ea.png'
           alt='avatar' />
-          <ArrowDropDownIcon />
+          <ArrowDropDownIcon className='icon'/>
         </div>
       </div>
     </div>
