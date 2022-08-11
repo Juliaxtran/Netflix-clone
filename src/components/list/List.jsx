@@ -10,10 +10,16 @@ export const List = () => {
   const listRef = useRef();
 
   const handleClick = (direction) => {
+
+    let distance = listRef.current.getBoundingClientRect().x - 50;
     // one item 225px and space which 5 px total is 230px
     if (direction === 'left') {
-
+      listRef.current.style.transform = `translateX(${230 + distance}px)`;
     }
+    if (direction === 'right') {
+      listRef.current.style.transform = `translateX(${-230 + distance}px)`;
+    }
+
   }
   return (
     <div className='list'>
