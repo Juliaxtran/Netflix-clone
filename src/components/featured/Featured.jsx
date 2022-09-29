@@ -29,7 +29,7 @@ export const Featured = ({type}) => {
         </div>
       )}
       <img
-        src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/84c20033850498.56ba69ac290ea.png"
+        src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
         alt="avatar"
       />
       <div className="info">
