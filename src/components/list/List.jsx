@@ -4,8 +4,10 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { ListItem } from '../listitem/ListItem';
 import { useRef } from 'react';
-
+import { useState } from 'react';
 export const List = () => {
+  const [slideNumber, setSlideNumber] = useState(0);
+  const [isMoved, setIsMoved] = useState(false);
 
   const listRef = useRef();
 
@@ -13,10 +15,13 @@ export const List = () => {
 
     let distance = listRef.current.getBoundingClientRect().x - 50;
     // one item 225px and space which 5 px total is 230px
-    if (direction === 'left') {
+    setIsMoved(true);
+    if (direction === 'left' && slideNumber > 0) {
+      setSlideNumber(slideNumber - 1);
       listRef.current.style.transform = `translateX(${230 + distance}px)`;
     }
-    if (direction === 'right') {
+    if (direction === 'right' && slideNumber < 5) {
+      setSlideNumber(slideNumber + 1);
       listRef.current.style.transform = `translateX(${-230 + distance}px)`;
     }
 
@@ -25,20 +30,24 @@ export const List = () => {
     <div className='list'>
       <span className='listTitle'>Continue to watch</span>
       <div className="wrapper">
-        <ArrowBackIosIcon className="sliderArrow left" onClick={() => handleClick("left")}/>
+        <ArrowBackIosIcon className="sliderArrow left"
+         onClick={() => handleClick("left")}
+         style={{display : !isMoved && 'none'}}/>
         <div className="container" ref={listRef}>
-          <ListItem  />
-          <ListItem  />
-          <ListItem  />
-          <ListItem  />
-          <ListItem  />
-          <ListItem  />
-          <ListItem  />
-          <ListItem  />
-          <ListItem  />
-          <ListItem  />
+          <ListItem index={0} />
+          <ListItem  index={1}/>
+          <ListItem  index={2}/>
+          <ListItem  index={3}/>
+          <ListItem  index={4}/>
+          <ListItem  index={5}/>
+          <ListItem  index={6}/>
+          <ListItem  index={7}/>
+          <ListItem  index={8}/>
+          <ListItem  index={9}/>
         </div>
-        <ArrowForwardIosIcon className="sliderArrow right" onClick={() => handleClick("right")}/>
+        <ArrowForwardIosIcon
+        className="sliderArrow right"
+        onClick={() => handleClick("right")}/>
 
       </div>
     </div>
